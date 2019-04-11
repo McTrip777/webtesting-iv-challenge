@@ -24,9 +24,29 @@ describe('users', () => {
   });
 
   describe('Delete()', () => {
-    // it('should delete a user', async () => {
-      
+    // it('should delete a user', async (id) => {
+    //   await Users.add([{ name: 'jake' },{ name: 'zech'}])
+    //   user = await Users.remove({ id: 1 })
+    //   expect(user.length).toBe(1)
     // });
+
+  });
+
+  describe('Get()', () => {
+    it('should add a user and compare it the result', async () => {
+      let users = await Users.add({ name: 'jake' });
+      expect(users).toEqual({
+        id: 1,
+        name: 'jake'
+      })
+
+      users = await Users.add({ name: 'Zech' });
+      expect(users).toEqual({
+        id: 2,
+        name: 'Zech'
+      }
+    )
+    });
 
   });
 });
