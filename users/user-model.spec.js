@@ -24,12 +24,13 @@ describe('users', () => {
   });
 
   describe('Delete()', () => {
-    // it('should delete a user', async (id) => {
-    //   await Users.add([{ name: 'jake' },{ name: 'zech'}])
-    //   user = await Users.remove({ id: 1 })
-    //   expect(user.length).toBe(1)
-    // });
-
+    it('should delete a user', async () => {
+      await Users.add([{ name: 'jake' },{ name: 'zech'},{ name: 'Lauren'}])
+      await Users.remove(1)
+      let user = await db('users')
+      console.log(user)
+      expect(user[1].name).toBe('Lauren')
+    });
   });
 
   describe('Get()', () => {

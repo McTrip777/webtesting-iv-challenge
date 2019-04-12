@@ -19,24 +19,16 @@ describe('Server', () => {
     });
 
     describe('GET /users', () => {
-        it('should pass with /users', () => {
-          return request(server)
-            .get('/users')
-            .then(response => {
-              expect(response.status).toBe(200);
-            });
+        it('should pass with /users', async () => {
+          const solution = await request(server)
+            .get('/users');
+            expect(solution.status).toBe(200);
         });
   
-        // it('should check for text', () => {
-        //   return request(server)
-        //     .get('/users')
-        //     .expect('Content-Type', /json/);
-        // });
+        it('should check for each user object using js Object Notation',  () => {
+          return request(server).get('/users')
+            .expect('Content-Type', /json/);
+        });
       });
-  
-    
-
-
-
 
 });

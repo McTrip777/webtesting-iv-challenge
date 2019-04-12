@@ -4,7 +4,7 @@ const Users = require('../users/user-model.js');
 const router = express.Router();
 
 
-router.get('/users', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const user = await Users.get();
         res.status(200).json(user);
